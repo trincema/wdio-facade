@@ -11,10 +11,16 @@
     "url": "git+https://github.com/trincema/wdio-facade.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Emanuel TRINC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/trincema/wdio-facade/issues"
   },
-  "homepage": "https://github.com/trincema/wdio-facade#readme"
+  "homepage": "https://github.com/trincema/wdio-facade#readme",
+  "devDependencies": {
+    "@wdio/cli": "^7.20.1",
+    "@wdio/types": "^7.20.0",
+    "axios": "^1.1.3",
+    "gtaa-interface-ts": "^1.0.3"
+  }
 }

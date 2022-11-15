@@ -40,7 +40,7 @@ export class BrowserAction implements BrowserActions {
      * @param scroll Flag to scroll or not to scroll to the element before click, default to false.
      * @param timeout Timeout to wait for element to be interactable, default being 1 minute.
      */
-    public async click(locator: string, clickable: boolean, scroll: boolean, timeout: number): Promise<void> {
+    public async click(locator: string, clickable: boolean = true, scroll: boolean = true, timeout: number = 60): Promise<void> {
         const element = await $(locator);
         await element.waitForExist({ timeout: timeout * 1000 });
         await element.waitForEnabled({ timeout: timeout * 1000 });
@@ -57,7 +57,7 @@ export class BrowserAction implements BrowserActions {
      * Click specific element from a list of elements all identified by the same given locator.
      * 
      */
-    public async clickElement(locator: string, index: number, clickable: boolean, timeout: number): Promise<void> {
+    public async clickElement(locator: string, index: number, clickable: boolean = true, timeout: number = 60): Promise<void> {
         let element = await $$(locator)[index];
         while (element === undefined) {
             await browser.pause(250);
@@ -78,7 +78,7 @@ export class BrowserAction implements BrowserActions {
      * @param value The value to be inputed in the element.
      * @param timeout Timeout to wait for element to be interactable, default being 1 minute.
      */
-    public async inputValue(locator: string, value: string, timeout: number): Promise<void> {
+    public async inputValue(locator: string, value: string, timeout: number = 60): Promise<void> {
         const inputElement = await $(locator);
         await inputElement.waitForExist({ timeout: timeout * 1000 });
         await inputElement.scrollIntoView();

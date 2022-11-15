@@ -1,9 +1,9 @@
 {
   "name": "wdio-facade",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Facade/Wrapper utility library over WebdriverIO basic commands",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc"
   },

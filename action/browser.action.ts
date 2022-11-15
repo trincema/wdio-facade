@@ -5,7 +5,7 @@ import { BrowserActions } from 'gtaa-interface-ts/action/browser-actions.interfa
 /**
  * The implementation with all doable actions of the TAF Tool.
 */
-class BrowserAction implements BrowserActions {
+export class BrowserAction implements BrowserActions {
     private log = {
         info: (msg: string) => {},
         error: (msg: string) => {}

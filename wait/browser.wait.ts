@@ -22,7 +22,9 @@ export class BrowserWait implements BrowserWaits {
     }
 
     /**
-     * 
+     * Just wait for element to be visible without asserting it.
+     * @param locator Element locator as string, could be a css locator.
+     * @param timeout Timeout to wait for element to be visible, default being 1 minute.
     */
     public async forElementToBeVisible(locator: string, timeout: number) {
         timeout = timeout * 1000;

@@ -58,7 +58,11 @@ class BrowserAction implements BrowserActions {
      * 
      */
     public async clickElement(locator: string, index: number, clickable: boolean, timeout: number): Promise<void> {
-        const element = await $$(locator)[index];
+        let element = await $$(locator)[index];
+        while (element === undefined) {
+            await browser.pause(250);
+            element = await $$(locator)[index];
+        }
         await element.waitForExist({ timeout: timeout * 1000 });
         await element.waitForEnabled({ timeout: timeout * 1000 });
         if (clickable) {
@@ -79,6 +83,21 @@ class BrowserAction implements BrowserActions {
         await inputElement.waitForExist({ timeout: timeout * 1000 });
         await inputElement.scrollIntoView();
         await inputElement.setValue(value);
+    }
+
+    /**
+     * Appending the given string to the input element identified by the given locator.
+     * This is helpful for dynamic input fields which have processing on them,
+     * since it can cause the content to not be entered properly.
+     * @param locator The locator of the HTML input element.
+     * @param value The value to be inputed in the element.
+     * @param timeout Timeout to wait for element to be interactable, default being 1 minute.
+    */
+    public async appendToInput(locator: string, value: string, timeout: number = 60): Promise<void> {
+        const inputElement = await $(locator);
+        await inputElement.waitForExist({ timeout: timeout * 1000 });
+        await inputElement.scrollIntoView();
+        await inputElement.addValue(value);
     }
  
     /**
@@ -109,7 +128,18 @@ class BrowserAction implements BrowserActions {
     }
 
     /**
+     * Generic method to pause the current execution a given number of seconds.
+     * @param seconds The given number of seconds to pause the current execution.
+    */
+    public async sleepMilis(milliseconds: number): Promise<void> {
+        await browser.pause(milliseconds);
+    }
+
+    /**
      * Make GET request and return the given Object type as response.
+     * @param url The url to which the POST request is to be made.
+     * @param payload The data to be sent to the server.
+     * @param log External log object to log any errors to the caller.
     */
     public async getRequest<Type>(url: string, log: any = this.log): Promise<any> {
         try {
@@ -137,6 +167,9 @@ class BrowserAction implements BrowserActions {
 
     /**
      * Make POST request and return the given Object type as response.
+     * @param url The url to which the POST request is to be made.
+     * @param payload The data to be sent to the server.
+     * @param log External log object to log any errors to the caller.
     */
     public async postRequest<Type>(url: string, payload: Object, log: any = this.log): Promise<any> {
         try {

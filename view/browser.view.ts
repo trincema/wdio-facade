@@ -93,3 +93,5 @@ export class BrowserView implements BrowserViewable {
     }
 
 }
+
+export default new BrowserView();

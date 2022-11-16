@@ -197,3 +197,5 @@ export class BrowserAction implements BrowserActions {
         }
     }
 }
+
+export default new BrowserAction();

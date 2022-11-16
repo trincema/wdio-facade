@@ -105,3 +105,5 @@ export class BrowserWait implements BrowserWaits {
     }
 
 }
+
+export default new BrowserWait();

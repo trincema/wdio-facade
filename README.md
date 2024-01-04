@@ -3,6 +3,8 @@ Facade/Wrapper utility library over WebdriverIO basic commands.
 This library is dependent on [gtaa-interface-ts](https://github.com/trincema/gTAA-interface-ts), which is a generic TypeScript interface
 with the purpose of providing an abstraction layer for automation JavaScript/TypeScript automation tools.
 
+Published on NPM: https://snyk.io/advisor/npm-package/wdio-facade
+
 # Abstraction Layer
 Now, what do we mean by abstraction layer? According to ISTQB TAE as well as experience working with automation tools,
 they often get absolete in a couple of years or new better tools appear all the time on the market, and if we want to avoid

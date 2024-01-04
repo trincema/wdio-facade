@@ -1,6 +1,6 @@
 # wdio-facade
 Facade/Wrapper utility library over WebdriverIO basic commands.
-This library is dependent on gtaa-interface-ts, which is a generic TypeScript interface
+This library is dependent on [gtaa-interface-ts](https://github.com/trincema/gTAA-interface-ts), which is a generic TypeScript interface
 with the purpose of providing an abstraction layer for automation JavaScript/TypeScript automation tools.
 
 # Abstraction Layer
